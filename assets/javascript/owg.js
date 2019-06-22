@@ -19,9 +19,7 @@ var buildOranges = function (wordToGuess) {
         var nextCharacter = splitWord[i];
 
         if (nextCharacter == " ") {
-            //var newLine = $("<br>");
             currentBuildRow++;
-            console.log(currentBuildRow);
         }
         else {
             var frontOrange = $("<div>").addClass("orangeCardFront");
@@ -38,3 +36,20 @@ var displayWord = function () {
 }
 
 buildOranges(testWord);
+
+
+
+
+
+
+
+
+//This gets the guess from the user
+$("#submitUserGuess").on("click", function(event){
+    event.preventDefault();
+    var letterGuessed = $("#userGuess").val().trim();
+    $("#userGuess").val("");
+    console.log(letterGuessed);
+    //topics.push(newTopic);
+    
+});
