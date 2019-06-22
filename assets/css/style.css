@@ -1,0 +1,43 @@
+.orangeCard {
+    position: relative;
+    float: left;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    transform-style: preserve-3d;
+    transition: all 1.0s ease-in-out;
+}
+
+.orangeCard.flipped {
+    transform: rotateY(180deg);
+}
+
+.orangeCardFront {
+    position: absolute;
+    /* background-color: orange; */
+    background-image: url(../images/orange.png);
+    background-size: cover;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    text-align: center;
+    overflow: hidden;
+}
+
+.orangeCardBack {
+    position: absolute;
+    background-image: url(../images/orangeslice.png);
+    background-size: cover;
+    background-color: lightgreen;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    text-align: center;
+    overflow: hidden;
+    transform: rotateY(180deg);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    color: black;
+}
