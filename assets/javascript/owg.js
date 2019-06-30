@@ -1,5 +1,4 @@
-//This function builds the word into orange slices.
-
+//GLOBAL VARIABLES
 var splitWord = [];
 var testWord = "Orange Blossom Trail";
 //The length of this array before any letters are pushed is 39
@@ -25,9 +24,8 @@ var buildOranges = function (wordToGuess) {
         else {
             var frontOrange = $("<div>").addClass("orangeCardFront");
             var backOrange = $("<div>").addClass("orangeCardBack").text(nextCharacter);
-            var wholeOrange = frontOrange.append(backOrange);
-            var orangeSlice = $("<div>").attr({ class: "orangeCard", id: ("oc" + i) }).html(wholeOrange)
-            $("#buildWordHere" + currentBuildRow).append(orangeSlice);
+            var wholeOrange = $("<div>").attr({ class: "orangeCard", id: ("oc" + i) }).append(frontOrange, backOrange);
+            $("#buildWordHere" + currentBuildRow).append(wholeOrange);
         }
     }
 }
@@ -63,8 +61,47 @@ $("#submitUserGuess").on("click", function (event) {
         var upperGuess = letterGuessed.toUpperCase();
         lettersGuessedArray.push(upperGuess);
         console.log(lettersGuessedArray);
+        flipLetter(checkLetter(lowerGuess));
+        flipLetter(checkLetter(upperGuess));
+
     }
 
-    
+
+
+
 
 });
+
+
+var checkLetter = function (guess) {
+    var matchIndex = 0;
+    var matchIndexArray = [];
+    var lastChecked = 0;
+
+    while (matchIndex != -1) {
+        matchIndex = splitWord.indexOf(guess, lastChecked)
+
+        if (matchIndex >= 0) {
+            matchIndexArray.push(matchIndex);
+            lastChecked = matchIndex + 1;
+        }
+    }
+
+    //console.log(matchIndexArray);
+    return matchIndexArray;
+}
+
+console.log(checkLetter("s"));
+
+// var flipLetter = function () {
+//     $("#oc3").addClass("flipped")
+// }
+// flipLetter();   
+
+var flipLetter = function (matchIndexArray) {
+    for (i = 0; i < matchIndexArray.length; i++) {
+        document.getElementById("oc" + matchIndexArray[i]).className = "orangeCard flipped";
+    }
+}
+
+// flipLetter(checkLetter("s"));
