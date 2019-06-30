@@ -1,4 +1,5 @@
 //GLOBAL VARIABLES
+var roadList = ["Alafaya Trail", "Anderson Street", "Bumby Avenue", "Chickasaw Trail", "Church Street", "Colonial Drive", "Conroy Road", "Corrine Drive", "Curry Ford Road", "Econlockhatchee Trail", "Goldenrod Road", "Hiawassee Road", "International Drive", "John Young Parkway", "Kirkman Road", "Lake Underhill Road", "Michigan Street", "Mills Avenue", "Narcoossee Road", "Orange Avenue", "Orange Blossom Train", "Pine Hills Road", "Princeton Street", "Robinson Street", "Sand Lake Road", "Semoran Boulevard", "Silver Star Road", "Universal Boulevard", "University Boulevard"];
 var splitWord = [];
 var testWord = "Orange Blossom Trail";
 //The length of this array before any letters are pushed is 39
@@ -7,6 +8,9 @@ var wordView = "";
 var currentBuildRow = 0;
 
 
+
+var randomRoad = roadList[Math.floor(Math.random() * roadList.length)];
+console.log(randomRoad);
 
 //This function turns the phrase into a string of characters and then displays the characters within the Orange Card slices.
 var buildOranges = function (wordToGuess) {
@@ -30,13 +34,13 @@ var buildOranges = function (wordToGuess) {
     }
 }
 
-var displayWord = function () {
-    buildOranges(testWord);
-}
+// var displayWord = function () {
+//     buildOranges(testWord);
+// }
 
-buildOranges(testWord);
+buildOranges(randomRoad);
 
-console.log(lettersGuessedArray.length)
+// console.log(lettersGuessedArray.length)
 
 
 
